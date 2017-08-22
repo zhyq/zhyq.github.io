@@ -1,4 +1,4 @@
-## Welcome to zhyq Pages
+## zhyq
 
 ## 个人信息
 微信公众号：12399
