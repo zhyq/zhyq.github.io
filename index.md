@@ -1,11 +1,14 @@
 ## Welcome to zhyq Pages
 
-# zhyq
+## 个人信息
+微信公众号：12399
+email:272065989@qq.com
 
 
-## education
-ustc
+## 教育经历
+中国科技大学 软件工程 硕士
+湖南农业大学 计算机科学技术 本科
 
-## 
-baidu
-tencent
+## 工作经历
+百度地图 后台开发 201502-201602 
+腾讯 信息安全  word2vec libshorttext cnn 文本处理 自然语言处理  201607-至今
