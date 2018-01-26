@@ -1,18 +1,24 @@
-## zhyq
+# zhyq
 
-## 个人信息
+主页「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
+github:  [zhyq](http://github/zhyq.com) 」
 微信公众号：12399
-<br>
-github: www.github.com/zhyq
-
 
 
 ## 教育经历
-中国科技大学 软件工程 硕士
 
+ - 中国科学技术大学：软件工程(``` 硕士 ```)
+
+---
 
 ## 工作经历
-百度地图 后台开发 矢量图抽稀 矢量地图后台处理 后台请求港澳台地图分流 底图毛刺问题发现和分析 201502-201602 
-<br>
+ - 百度地图: 后台开发 矢量图抽稀 矢量地图后台处理 后台请求港澳台地图分流 底图毛刺问题发现和分析 (``` 201502-201602 ```)
+ - 腾讯: 信息安全  word2vec libshorttext cnn 文本处理 特征选择 文本分类 情感分类 话题聚类 (``` 201603-至今 ```)
+---
 
-腾讯 信息安全  word2vec libshorttext cnn 文本处理 特征选择 文本分类 情感分类 话题聚类 201603-至今
+
+## 联系方式
+
+- Email：zhangyunquan@hotmail.com 
+---
+
