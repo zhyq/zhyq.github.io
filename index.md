@@ -1,8 +1,8 @@
 # zhyq
 
-主页「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
-github:  [zhyq](http://github/zhyq.com) 」
-微信公众号：12399
+ - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
+ - github:  [zhyq](http://github/zhyq.com) 」
+ - 微信公众号：12399
 
 
 ## 教育经历
