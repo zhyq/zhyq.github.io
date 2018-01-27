@@ -1,6 +1,6 @@
 # zhyq
 
- - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
+ - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.cn) 」。
  - github: 「 [zhyq](https://www.github.com/zhyq) 」
  - 微信公众号：「
    [12399](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2MTEzODg4Ng==&scene=123&uin=NjM4NjMxODIw&key=76db3e4b493ddfc65bb92fbd6e0b8f6503f979f173d244d27d221dad1b0c260c5c63277d20c6b6b48abf5082c1190d6c86557ba786ad079e92083f3d00ce5a71769b02ec15561bb29a03892196d0e218&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.5+build(15F34)&version=11020012&lang=zh_CN&a8scene=0&pass_ticket=He0ORGV8r4yeid5OBoAkthEcLj1N3nmzRisKnEC9o04EZ9B2Wu5fyAjiJGU71QDb) 」
