@@ -2,7 +2,7 @@
 
  - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.cn) 」。
  - github: 「 [zhyq](https://www.github.com/zhyq) 」
- - 微信公众号：「 [12399](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2MTEzODg4Ng==&scene=110#wechat_redirect) 」
+ - 微信公众号：「 [12399](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2MTEzODg4Ng==&scene=110#wechat_redirect ) 」
 
 ---
 
