@@ -2,8 +2,7 @@
 
  - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
  - github: 「 [zhyq](http://www.github.com/zhyq) 」
- - 微信公众号：「
-   [12399](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2MTEzODg4Ng==&scene=123&uin=NjM4NjMxODIw&key=de23c3a8ee37dbc78d321a5bf89ea6fbe047327aca49991ea6624e79ba373d03b2ced6d58692d8b96fa8e63902d8daeada9414a0f58c7065f120b19798b958dc824fb6b56b4baed3569370c8b6eefd2d&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.5+build(15F34)&version=11020012&lang=zh_CN&a8scene=0&pass_ticket=He0ORGV8r4yeid5OBoAkthEcLj1N3nmzRisKnEC9o04EZ9B2Wu5fyAjiJGU71QDb) 」
+ - 微信公众号：「 [12399](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2MTEzODg4Ng==&scene=123&uin=NjM4NjMxODIw&key=de23c3a8ee37dbc78d321a5bf89ea6fbe047327aca49991ea6624e79ba373d03b2ced6d58692d8b96fa8e63902d8daeada9414a0f58c7065f120b19798b958dc824fb6b56b4baed3569370c8b6eefd2d&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.5+build(15F34)&version=11020012&lang=zh_CN&a8scene=0&pass_ticket=He0ORGV8r4yeid5OBoAkthEcLj1N3nmzRisKnEC9o04EZ9B2Wu5fyAjiJGU71QDb) 」
 
 ---
 
