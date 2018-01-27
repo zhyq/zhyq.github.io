@@ -1,7 +1,7 @@
 # zhyq
 
  - 主页: 「 [zhangyunquan.cn](http://zhangyunquan.com) 」。
- - github: 「 [zhyq](http://www.github/zhyq.com) 」
+ - github: 「 [zhyq](http://www.github.com/zhyq) 」
  - 微信公众号：12399
 
 ---
