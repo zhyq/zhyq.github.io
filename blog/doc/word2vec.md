@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 ### 关于word2vec我有话要说
 
 #### 写在前面的话：
