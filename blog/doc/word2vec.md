@@ -102,10 +102,12 @@
 
 #### 资源
                  
-   word2vec  项目 ：https://github.com/zhyq/word2vec-google
-   spark mllib word2vec训练，转换成word vector形式（与google一致）https://github.com/zhyq/word2vec-spark
+  * [google word2vec](https://github.com/zhyq/word2vec-google)
+  
+  * [spark mllib word2vec 转换成word vector形式(与google一致)](https://github.com/zhyq/word2vec-spark)
 
-word2vec效果展示
+#### word2vec效果展示
+
 ![image](http://zhangyunquan.cn/blog/pic/word2vec_result.png)
 ![image](http://zhangyunquan.cn/blog/pic/word2vec_tnse_show.png)
 
