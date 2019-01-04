@@ -1,16 +1,31 @@
 <!DOCTYPE HTML>
-
 <html>
-
+<head>
+<style type="text/css">
+.vid-wrap{
+    width:100%;background: #000;
+    position:relative;
+    padding-bottom:56.25%;    /*需要用padding来维持16:9比例,也就是9除以16*/
+    height: 0;
+}
+.vid-wrap video{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%
+    }
+</style>
+</head>
+<title>张运泉&江娟婚礼</title>
 <body>
 
-<video width="320" height="240" controls="controls">
 
-    <source src="mov.ogg" type="video/ogg">
-
-    <source src="./video/zyqjj.mp4" type="video/mp4">
-
-</video>
+<div class="vid-wrap">
+    <video controls autoplay loop>
+	<source src="./video/zyqjj.mp4" type="video/mp4">
+    </video>
+</div>
 
 </body>
 
