@@ -55,16 +55,90 @@
 ```</code></pre>
 <ul>
 <li>3 基于深度学习的方法 基于深度学习方法做query rewrite的方法很多。这里讲解一些笔者用到方法</li>
-<li><p>3.1 基于上下文的query2vec 和word2vec doc2vec原理一样，利用语言模型的原理，上下文相关的query具有相似性。将共现的query看做句子。比如将用一个session的所有query 或者点击同一个doc的所有query 看做句子。把query看做token,训练 query向量。详细方法可参照<a href="https://astro.temple.edu/~tuc17157/pdfs/grbovic2015sigir.pdf">相关论文</a> 效果如下：</p>
+<li><p>3.1 基于上下文的query2vec 和word2vec doc2vec原理一样，利用语言模型的原理，上下文相关的query具有相似性。将共现的query看做句子。比如将用一个session的所有query 或者点击同一个doc的所有query 看做句子。把query看做token,训练 query向量。详细方法可参照<a href="https://astro.temple.edu/~tuc17157/pdfs/grbovic2015sigir.pdf">相关论文</a></p>
+<p>使用query2vec算出历史query的embedding,再通过聚类方法，把query聚合成多个簇， 同一个簇对应的query可以作为其中一个query的扩展 效果如下：</p>
 <p>```js</p>
-<p>使用query2vec算出历史query的embedding,再通过聚类方法，把query聚合成多个簇， 同一个簇对应的query可以作为其中一个query的扩展 query 聚簇id ------------- 京东白条 39 京东金融服务 39 京东好借 39 京东金条公众号 39 京东金条贷 39 京东金融一站通 39 京东支付 39 设计 40 ps 40 h5 40 海报 40 工商银行信用卡 41 工商银行信用卡中心 41 韵达快递 42 韵达 42 韵达快递查询 42 韵达快递单号查询 42 韵达快递公众号 42 韵达速递 42 视频去水印 43 抖音去水印小工具 43 ```</p></li>
+<table>
+<thead>
+<tr class="header">
+<th align="left">query 聚簇id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">京东白条 39</td>
+</tr>
+<tr class="even">
+<td align="left">京东金融服务 39</td>
+</tr>
+<tr class="odd">
+<td align="left">京东好借 39</td>
+</tr>
+<tr class="even">
+<td align="left">京东金条公众号 39</td>
+</tr>
+<tr class="odd">
+<td align="left">京东金条贷 39</td>
+</tr>
+<tr class="even">
+<td align="left">京东金融一站通 39</td>
+</tr>
+<tr class="odd">
+<td align="left">京东支付 39</td>
+</tr>
+<tr class="even">
+<td align="left">设计 40</td>
+</tr>
+<tr class="odd">
+<td align="left">ps 40</td>
+</tr>
+<tr class="even">
+<td align="left">h5 40</td>
+</tr>
+<tr class="odd">
+<td align="left">海报 40</td>
+</tr>
+<tr class="even">
+<td align="left">工商银行信用卡 41</td>
+</tr>
+<tr class="odd">
+<td align="left">工商银行信用卡中心 41</td>
+</tr>
+<tr class="even">
+<td align="left">韵达快递 42</td>
+</tr>
+<tr class="odd">
+<td align="left">韵达 42</td>
+</tr>
+<tr class="even">
+<td align="left">韵达快递查询 42</td>
+</tr>
+<tr class="odd">
+<td align="left">韵达快递单号查询 42</td>
+</tr>
+<tr class="even">
+<td align="left">韵达快递公众号 42</td>
+</tr>
+<tr class="odd">
+<td align="left">韵达速递 42</td>
+</tr>
+<tr class="even">
+<td align="left">视频去水印 43</td>
+</tr>
+<tr class="odd">
+<td align="left">抖音去水印小工具 43</td>
+</tr>
+<tr class="even">
+<td align="left">```</td>
+</tr>
+</tbody>
+</table></li>
 </ul>
-<p>   * 3.2 deepwalk     deepwalk和3.1类似，区别在构造sentence上下文采用随机游走的方法。 随机游走的原理：将query之间的关系建立成图。通过从一个点随机游走，建立起多条条路径，每条路径上的query组成一个句子。再使用上下文相关原理(3.1)训练query的embedding. 随机游走的优点就是关系具有传递性，和query共现不同,可以将间接关系的query建立联系。少量的数据经过游走能够产生够多的训练数据。例如session1:q1-&gt;q2 session2:q2-&gt;q3. 共线的方法无法直接建立q1-&gt;q3的关系。而随机游走能够很好的解决。 deepwalk 效果如下：</p>
-<pre><code>  ```js
+<p>   * 3.2 deepwalk     deepwalk和3.1类似，区别在构造sentence上下文采用随机游走的方法。 随机游走的原理：将query之间的关系建立成图。通过从一个点随机游走，建立起多条条路径，每条路径上的query组成一个句子。再使用上下文相关原理(3.1)训练query的embedding. 随机游走的优点就是关系具有传递性，和query共现不同,可以将间接关系的query建立联系。少量的数据经过游走能够产生够多的训练数据。例如session1:q1-&gt;q2 session2:q2-&gt;q3. 共线的方法无法直接建立q1-&gt;q3的关系。而随机游走能够很好的解决。 使用deepwalk 算出query的embedding, 再根据每个queryembedding，去找相近的query,作为此query的扩展。 下面是 物流 这个词 通过embedding 算cosine 找出的相关query</p>
+<pre><code>  deepwalk 效果如下：
 
-   使用deepwalk 算出query的embedding,
-   再根据每个queryembedding，去找相近的query,作为此query的扩展。
-   下面是 物流 这个词 通过embedding 算cosine 找出的相关query
+  ```js
+
    相关query  Cosine distance
    --------------------------
    联邦物流    0.989296
