@@ -1,7 +1,8 @@
-<h3 id="搜索扩招回之query-改写">搜索扩招回之query 改写</h3>
+<h1 id="搜索扩招回之query-改写">搜索扩招回之query 改写</h1>
 <h4 id="背景">背景</h4>
 <p>召回和排序是搜索的两个重要模块。召回的功能就是根据用户的query，尽可能的找出更多query相关的结果。query改写(query rewrite )是query扩召回的重要组成部分。通过对原始query进行改写，扩展出多个相关query，作为原始query的补充，与原始query一起参与搜索，从而返回更加丰富和准确的搜索结果</p>
-<p>#### query rewrite 的方法 query rewrite方法很多， 关键在于理解业务场景，构造合理的特征。</p>
+<h4 id="query-rewrite-的方法">query rewrite 的方法</h4>
+<p>query rewrite方法很多， 关键在于理解业务场景，构造合理的特征。</p>
 <ul>
 <li>1 基于日志挖掘的方法 基于用户的行为数据，挖掘query和query之间的关系。 query点击日志和query session日志是比较容易想到的数据。对于点击同一文档的query建立query共现关系，以及基于同一个session下的query建立共现关系。 点击日志和session日志的数据各有优缺点，session 的数据不过度依赖搜索结果。点击的数据普适性更强。可以结合使用</li>
 <li>基于session的优点是不依赖现有的搜索结果。如果用户搜q1搜不到结果，可以继续搜q2，发现了想要的。如此，q1和q2就建立了联系。以后用户搜q1，就可以把q2的结果返回回来。和session数据相比，点击的数据 缺点就是依赖现有的搜索返回的结果。如果搜索q1在现有搜索引擎下召不回任何结果，q1就没法和其他任何的query建立联系</li>
