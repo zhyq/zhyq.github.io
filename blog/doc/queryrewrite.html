@@ -7,15 +7,21 @@
 <li>基于session的优点是不依赖现有的搜索结果。如果用户搜q1搜不到结果，可以继续搜q2，发现了想要的。如此，q1和q2就建立了联系。以后用户搜q1，就可以把q2的结果返回回来。和session数据相比，点击的数据 缺点就是依赖现有的搜索返回的结果。如果搜索q1在现有搜索引擎下召不回任何结果，q1就没法和其他任何的query建立联系</li>
 <li>点击的数据是多个不同用户搜索不同query点击的同一文档的数据。把不同用户之间的搜素建立关系。往往泛化能力更强。session数据建立的是个体内部的query关系。存在知识偏差。 举个例子：之前的一部电影叫做 &quot;西虹市首富&quot; ,大部分用户以为电影名为&quot;西红柿首富&quot;，很少有用户会先搜&quot;西红柿首富&quot;，再搜&quot;西虹市首富&quot;。session中 共线关系很强的都是 西红首富 西红柿 首富 等词，基于session很难挖掘到 &quot;西红柿首富&quot;扩展到&quot;西虹市首富&quot;。 而点击就会弱化这个关系，用户X搜索 &quot;西虹市首富&quot;点击了西虹市首富电影相关的doc，用户Y搜索&quot;西红柿首富&quot;，通过翻了很多页也点击了这个doc,基于点击的数据就能更容易的挖掘到 &quot;西红柿首富&quot;扩展到&quot;西虹市首富&quot; 基于挖掘的效果如下：</li>
 </ul>
-<p><code>js   小艾姑娘    小爱姑娘   冬瓜动漫    冬瓜漫画   断桥姑娘公众号  断桥姑娘   英语46级    四级英语   中国邮政快递单号查询    中国邮政   阿拉蕾表情  阿拉蕾的表情包   毛线拖鞋编织    毛线编织   清马    清远马拉松   圣诞节招募  圣诞节活动招募   关牧村歌曲  关牧村歌曲大全   tfbays  tfboys   中国水利网  中国水利   美女情趣    美女小视频   卫生    卫生巾</code></p>
+<p>```js</p>
+<p>小艾姑娘 小爱姑娘 冬瓜动漫 冬瓜漫画 断桥姑娘公众号 断桥姑娘 英语46级 四级英语 中国邮政快递单号查询 中国邮政 阿拉蕾表情 阿拉蕾的表情包 毛线拖鞋编织 毛线编织 清马 清远马拉松 圣诞节招募 圣诞节活动招募 关牧村歌曲 关牧村歌曲大全 tfbays tfboys 中国水利网 中国水利 美女情趣 美女小视频 卫生 卫生巾</p>
+<p>```</p>
 <p>基于挖掘的算法计算简单，能够快速更新数据，数据量足够大的情况下，效果也基本够用。缺点是需要大量的日志，而且简单粗暴，不能挖掘更深层次的关系，对于低频query效果不是很好。</p>
 <ul>
 <li><p>2 基于知识体系替换，通过query中词的同义词、上下位词替换改写query.</p>
-<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">  苹果6手机多少钱 <span class="op">-&gt;</span> iphone6多少钱 
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">
+  苹果6手机多少钱 <span class="op">-&gt;</span> iphone6多少钱 
   新鲜水果<span class="op">-&gt;</span>新鲜苹果 </code></pre></div></li>
 </ul>
 <p>上下位词关系一般牵涉到知识图谱挖掘，有兴趣可以去网上看看知识图谱的相关知识，这里不做过多介绍。 同义词挖掘方法很多，有语料对齐挖掘，上下文挖掘等 语料对齐法：可以拿点击日志、session日志、anchor语料 通过上述1.1方法挖掘到对齐语料。再使用机器翻译模型(比如 IBM Model1)等从对齐语料中挖掘同义词。 上下文挖掘：简单来说就是同义词往往有着相似的上下文。通过计算词的上下文相似程度来挖掘同义词</p>
-<p><code>js        折抵换购 iPhone XR 仅 RMB 176/月起          折抵换购 苹果 XR 仅 RMB 176/月起</code></p>
+<p>```js</p>
+<pre><code>   折抵换购 iPhone XR 仅 RMB 176/月起  
+   折抵换购 苹果 XR 仅 RMB 176/月起</code></pre>
+<p>```</p>
 <p>挖掘的同义词效果如下：</p>
 <p>```js</p>
 <pre><code>面包机  厨师机
@@ -61,5 +67,8 @@ ems 邮政速递
    顺丰物流查询    0.985537
   ```</code></pre>
 <ul>
-<li>3.3 bert 关于bert模型的基本原理，读者有兴趣可以去网上搜索。简单的说，就是输入sententce，采用transformer+mask方法，tonken(单字)embedding 作为输入的基本特征，训练出 sentence的向量并输出。后续可以采用Fine-tuning方法，再在外面将sentence 的embedding 和 label 数据 套上loss目标函数，完成对具体任务的训练。 笔者将数据构造成 q1 q2 label的方式。训练样本的构造可按参照上面挖掘的方法，把挖到的数据做正样本，随机的query 对为负样本。 将q1 ， q2作为输入，得到sentence embedding，再根据label来计算loss，这样就可以学习到 q1和q2的相似性。 具体参考bert中run_classifier.py的squad例子。 <code>js    苹果 iphone 1    苹果 电脑 0</code></li>
+<li><p>3.3 bert 关于bert模型的基本原理，读者有兴趣可以去网上搜索。简单的说，就是输入sententce，采用transformer+mask方法，tonken(单字)embedding 作为输入的基本特征，训练出 sentence的向量并输出。后续可以采用Fine-tuning方法，再在外面将sentence 的embedding 和 label 数据 套上loss目标函数，完成对具体任务的训练。 笔者将数据构造成 q1 q2 label的方式。训练样本的构造可按参照上面挖掘的方法，把挖到的数据做正样本，随机的query 对为负样本。 将q1 ， q2作为输入，得到sentence embedding，再根据label来计算loss，这样就可以学习到 q1和q2的相似性。 具体参考bert中run_classifier.py的squad例子。</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript">
+   苹果 iphone <span class="dv">1</span>
+   苹果 电脑 <span class="dv">0</span></code></pre></div></li>
 </ul>
